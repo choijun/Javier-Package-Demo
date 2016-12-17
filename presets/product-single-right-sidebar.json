@@ -1,0 +1,10 @@
+{
+  "product_tab_style": "default",
+  "single_product_layout": "col-2cr",
+  "related_columns": {
+    "lg": 3,
+    "md": 3,
+    "sm": 2,
+    "xs": 1
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "logo_transparency": 80,
+  "logo_transparency_2x": 81,
+  "header_full_width": "yes",
+  "header_transparency": "yes",
+  "footer_full_width": "yes",
+  "page_header_layout": "4",
+  "page_title_custom": "CATEGORY LEFT SIDEBAR",
+  "shop_layout": "col-2cl",
+  "shop_columns": {
+    "lg": 3,
+    "md": 3,
+    "sm": 2,
+    "xs": 1
+  },
+  "product_per_page_grid": "9,12,15",
+  "product_per_page_default_grid": "9",
+  "page_header_background": {
+    "image": "http:\/\/javier.la-studioweb.com\/wp-content\/uploads\/2016\/12\/shop-page-header-bg.jpg",
+    "size": "cover"
+  },
+  "header_transparency_text_color": "#fff",
+  "header_transparency_link_color": "#fff",
+  "header_transparency_link_hover_color": "#2635c4",
+  "header_transparency_mm_lv_1_color": "#fff",
+  "header_transparency_mm_lv_1_bg_color": "rgba(0,0,0,0)",
+  "header_transparency_mm_lv_1_hover_color": "#2635c4",
+  "header_transparency_mm_lv_1_hover_bg_color": "rgba(0,0,0,0)",
+  "page_header_title_color": "#fff",
+  "page_header_link_color": "#fff",
+  "page_header_link_hover_color": "#fff",
+  "page_header_spacing": {
+    "top" : 400,
+    "bottom" : 0
+  },
+  "page_header_spacing_tablet": {
+    "top" : 200,
+    "bottom" : 0
+  },
+  "page_header_spacing_mobile": {
+    "top" : 100,
+    "bottom" : 0
+  },
+  "la_custom_css": ".page-header-inner .page-title{font-weight: 700} .section-page-header .page-header-inner .col-xs-12:before{background: rgba(37, 38, 52, 0.7)}"
+}

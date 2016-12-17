@@ -1,0 +1,25 @@
+{
+  "logo": 323,
+  "logo_2x": 324,
+  "logo_transparency": 323,
+  "logo_transparency_2x": 324,
+  "logo_mobile": 323,
+  "logo_mobile_2x": 324,
+  "header_layout": 3,
+  "header_full_width": "no",
+  "header_show_social": 1,
+  "store_address": "73 Hartmann Landing Suite 697",
+  "store_phone": "(258) 987 654 321",
+  "store_email": "info@la-studioweb.com",
+  "page_header_layout": "hide",
+  "footer_layout": 4,
+  "footer_full_width": "no",
+  "footer_copyright_text": "<div class=\"footer-copyright\">Copyright 2017 Javier. Designed by LA Studio<\/div>",
+  "footer_background":{
+    "color": "#ffffff"
+  },
+  "footer_text_color": "#bbbbbb",
+  "footer_heading_color": "#000000",
+  "footer_link_color": "#000000",
+  "footer_link_hover_color": "#2635c4"
+}
