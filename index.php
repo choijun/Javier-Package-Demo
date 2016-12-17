@@ -60,19 +60,21 @@ class Javier_Data_Demo_Plugin_Class{
     }
 
     public function copyImages(){
-        $theme_name = sanitize_key(wp_get_theme()->get('Name'));
-        $status = get_option($theme_name . '_was_copy_image');
-        if(!$status){
-            global $wp_filesystem;
-            if (empty($wp_filesystem)) {
-                require_once(ABSPATH . '/wp-admin/includes/file.php');
-                WP_Filesystem();
-            }
-            $destination = wp_upload_dir();
-            $destination_path = $destination['basedir'];
-            $unzipfile = unzip_file( plugin_dir_path(__FILE__) . 'demo-data/images.zip', $destination_path);
-            if($unzipfile){
-                update_option( $theme_name . '_was_copy_image' , true );
+        if(file_exists(plugin_dir_path(__FILE__) . 'demo-data/images.zip')){
+            $theme_name = sanitize_key(wp_get_theme()->get('Name'));
+            $status = get_option($theme_name . '_was_copy_image');
+            if(!$status){
+                global $wp_filesystem;
+                if (empty($wp_filesystem)) {
+                    require_once(ABSPATH . '/wp-admin/includes/file.php');
+                    WP_Filesystem();
+                }
+                $destination = wp_upload_dir();
+                $destination_path = $destination['basedir'];
+                $unzipfile = unzip_file( plugin_dir_path(__FILE__) . 'demo-data/images.zip', $destination_path);
+                if($unzipfile){
+                    update_option( $theme_name . '_was_copy_image' , true );
+                }
             }
         }
     }
@@ -499,4 +501,3 @@ class Javier_Data_Demo_Plugin_Class{
 }
 
 $javier_demo_plugin = Javier_Data_Demo_Plugin_Class::instance();
-

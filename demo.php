@@ -11,7 +11,7 @@ $demo_array = array(
         'option' 		=> $file_url . 'main-fashion-01.json',
         'preview'		=> $image_url  . 'fashion-01.jpg',
         'menu-locations'=> array(
-            'main-nav' 		=> 'Primary Navigation',
+            'main-nav' 		=> 'Main Menu',
             'top-nav'       => 'Top Navigation',
             'footer-nav'    => 'Footer Menu'
         ),
@@ -31,7 +31,7 @@ $demo_array = array(
         'option' 		=> $file_url . 'main-fashion-02.json',
         'preview'		=> $image_url  . 'fashion-02.jpg',
         'menu-locations'=> array(
-            'main-nav' 		=> 'Primary Navigation',
+            'main-nav' 		=> 'Main Menu',
             'top-nav'       => 'Top Navigation',
             'footer-nav'    => 'Footer Menu'
         ),
@@ -50,7 +50,7 @@ $demo_array = array(
         'option' 		=> $file_url . 'main-fashion-03.json',
         'preview'		=> $image_url  . 'fashion-03.jpg',
         'menu-locations'=> array(
-            'main-nav' 		=> 'Primary Navigation',
+            'main-nav' 		=> 'Main Menu',
             'top-nav'       => 'Top Navigation',
             'footer-nav'    => 'Footer Menu'
         ),
@@ -70,7 +70,7 @@ $demo_array = array(
         'option' 		=> $file_url . 'main-fashion-04.json',
         'preview'		=> $image_url  . 'fashion-04.jpg',
         'menu-locations'=> array(
-            'main-nav' 		=> 'Primary Navigation',
+            'main-nav' 		=> 'Main Menu',
             'top-nav'       => 'Top Navigation',
             'footer-nav'    => 'Footer Menu'
         ),
@@ -90,7 +90,7 @@ $demo_array = array(
         'option' 		=> $file_url . 'main-fashion-05.json',
         'preview'		=> $image_url  . 'fashion-05.jpg',
         'menu-locations'=> array(
-            'main-nav' 		=> 'Menu Fashion 06',
+            'main-nav' 		=> 'Main Menu',
             'top-nav'       => 'Top Navigation',
             'footer-nav'    => 'Footer Menu'
         ),
@@ -110,7 +110,7 @@ $demo_array = array(
         'option' 		=> $file_url . 'main-sport-01.json',
         'preview'		=> $image_url  . 'sport-01.jpg',
         'menu-locations'=> array(
-            'main-nav' 		=> 'Main Electronic',
+            'main-nav' 		=> 'Main Menu',
             'top-nav'       => 'Top Navigation',
             'footer-nav'    => 'Footer Menu'
         ),
@@ -130,7 +130,7 @@ $demo_array = array(
         'option' 		=> $file_url . 'main-furniture-01.json',
         'preview'		=> $image_url  . 'furniture-01.jpg',
         'menu-locations'=> array(
-            'main-nav' 		=> 'Primary Navigation',
+            'main-nav' 		=> 'Main Menu',
             'top-nav'       => 'Top Navigation',
             'footer-nav'    => 'Footer Menu'
         ),
@@ -150,7 +150,7 @@ $demo_array = array(
         'option' 		=> $file_url . 'main-organic-01.json',
         'preview'		=> $image_url  . 'organic-01.jpg',
         'menu-locations'=> array(
-            'main-nav' 		=> 'Primary Navigation',
+            'main-nav' 		=> 'Main Menu',
             'top-nav'       => 'Top Navigation',
             'footer-nav'    => 'Footer Menu'
         ),
@@ -170,7 +170,7 @@ $demo_array = array(
         'option' 		=> $file_url . 'main-watch-01.json',
         'preview'		=> $image_url  . 'watch-01.jpg',
         'menu-locations'=> array(
-            'main-nav' 		=> 'Primary Navigation',
+            'main-nav' 		=> 'Main Menu',
             'top-nav'       => 'Top Navigation',
             'footer-nav'    => 'Footer Menu'
         ),
@@ -190,9 +190,9 @@ $demo_array = array(
         'option' 		=> $file_url . 'main-bike-01.json',
         'preview'		=> $image_url  . 'bike-01.jpg',
         'menu-locations'=> array(
-            'main-nav' 		=> 'Primary Navigation',
+            'main-nav' 		=> 'Main Menu',
             'top-nav'       => 'Top Navigation',
-            'footer-nav'    => 'Footer Menu'
+            'footer-nav'    => 'Footer Menu 2'
         ),
         'pages'			=> array(
             'page_on_front' 	=> 'Main Bike 01',

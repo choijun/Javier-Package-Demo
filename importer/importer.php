@@ -62,7 +62,7 @@ class LaStudio_Importer {
 	 */
 	public function setup_plugin_data(){
 		// Get info of import data files and filter it.
-		$this->demo_data = apply_filters( 'oasis/filter/demo_data', array() );
+		$this->demo_data = apply_filters( 'javier/filter/demo_data', array() );
 	}
 
 	public function get_demo_data(){
@@ -890,7 +890,7 @@ class LaStudio_Importer {
 	}
 
 	private function handling_importer_option( $file ) {
-		if( !defined('OASIS_OPTION') || empty( $file ) || !file_exists( $file ) ) {
+		if( empty( $file ) || !file_exists( $file ) ) {
 			$this->emit_sse_message( array(
 				'action' => 'ImportingOption',
 				'error'  => __( 'Access define!', LA_TEXTDOMAIN )
@@ -917,7 +917,7 @@ class LaStudio_Importer {
 			return;
 		}
 
-		update_option( OASIS_OPTION, $data );
+		update_option( lastudio_get_cs_option_name(), $data );
 		$this->logger->info(
 			__('Theme setting has been set', LA_TEXTDOMAIN)
 		);
