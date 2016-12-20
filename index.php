@@ -51,6 +51,8 @@ class Javier_Data_Demo_Plugin_Class{
         }
         add_action('LaStudio_Importer/copy_image', array( $this, 'copyImages') );
         add_action('init', array( $this, 'registerMenu'), 99 );
+
+        add_action('javier-footer-area-fallback', array( $this, 'footerWidgetFallback') );
     }
 
     public function registerMenu(){
@@ -332,7 +334,7 @@ class Javier_Data_Demo_Plugin_Class{
                 <div id="la-demo-selector-container" class="clearfix">
                     <div class="demo-container clearfix">
                         <div class="before-demo-selector clearfix">
-                            <a class="button primary" href="#">BUY THEME NOW!</a>
+                            <a class="button primary" href="https://themeforest.net/item/javier-modern-woocommerce-theme/18968725">BUY THEME NOW!</a>
                         </div>
                         <div class="demo-selector clearfix">
                             <?php foreach($demo_data as $demo):?>
@@ -347,112 +349,112 @@ class Javier_Data_Demo_Plugin_Class{
             </div>
             <div class="append-css-to-head hide">
                 #la-demo-selector {
-                    position: fixed;
-                    right: 0;
-                    z-index: 11;
-                    top: 0;
-                    bottom: 0;
-                    width: 280px;
-                    background-color: #fff;
-                    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
-                    -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
-                    transition: all .3s ease;
-                    -webkit-transition: all .3s ease
+                position: fixed;
+                right: 0;
+                z-index: 11;
+                top: 0;
+                bottom: 0;
+                width: 280px;
+                background-color: #fff;
+                box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+                -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+                transition: all .3s ease;
+                -webkit-transition: all .3s ease
                 }
                 #la-demo-selector.open {
-                    right: 0!important
+                right: 0!important
                 }
                 #la-demo-selector .demo-container {
-                    padding-top: 40px
+                padding-top: 40px
                 }
                 .before-demo-selector {
-                    text-align: center;
-                    margin-top: 20px;
-                    margin-bottom: 30px
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom: 30px
                 }
                 #la-demo-selector .demo-toggle {
-                    position: absolute;
-                    top: 25%;
-                    right: 100%;
-                    background-color: #fff;
-                    color: #000;
-                    padding: 20px;
-                    font-size: 25px;
-                    line-height: 1;
-                    border-radius: 0 2px 2px 0;
-                    cursor: pointer;
-                    margin-left: 100%;
-                    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
-                    -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1)
+                position: absolute;
+                top: 25%;
+                right: 100%;
+                background-color: #fff;
+                color: #000;
+                padding: 20px;
+                font-size: 25px;
+                line-height: 1;
+                border-radius: 0 2px 2px 0;
+                cursor: pointer;
+                margin-left: 100%;
+                box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+                -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1)
                 }
                 #la-demo-selector-container {
-                    height: 100%;
-                    overflow: hidden
+                height: 100%;
+                overflow: hidden
                 }
                 #la-demo-selector-container .demo-container {
-                    height: 100%;
-                    overflow-x: hidden;
-                    overflow-y: auto;
-                    margin-right: -25px;
-                    padding-right: 25px
+                height: 100%;
+                overflow-x: hidden;
+                overflow-y: auto;
+                margin-right: -25px;
+                padding-right: 25px
                 }
                 #la-demo-selector .demo-selector {
-                    padding: 0 5px;
-                    width: 280px
+                padding: 0 5px;
+                width: 280px
                 }
                 #la-demo-selector .demo-selector a {
-                    display: block;
-                    width: 125px;
-                    height: 140px;
-                    padding: 5px 5px 40px;
-                    position: relative;
-                    float: left;
-                    margin: 0 5px 20px;
-                    background-color: #f7f8fc;
-                    border: 1px solid #e1e6fa
+                display: block;
+                width: 125px;
+                height: 140px;
+                padding: 5px 5px 40px;
+                position: relative;
+                float: left;
+                margin: 0 5px 20px;
+                background-color: #f7f8fc;
+                border: 1px solid #e1e6fa
                 }
                 #la-demo-selector .demo-selector a:after {
-                    content: attr(title);
-                    text-transform: uppercase;
-                    font-weight: 700;
-                    display: block;
-                    font-size: 12px;
-                    line-height: normal;
-                    text-align: center;
-                    padding-top: 10px
+                content: attr(title);
+                text-transform: uppercase;
+                font-weight: 700;
+                display: block;
+                font-size: 12px;
+                line-height: normal;
+                text-align: center;
+                padding-top: 10px
                 }
                 #la-demo-selector .demo-selector a span {
-                    display: block;
-                    height: 100%;
-                    width: 100%;
-                    background-size: 100% auto
+                display: block;
+                height: 100%;
+                width: 100%;
+                background-size: 100% auto
                 }
                 #la-demo-selector .demo-selector a .holder {
-                    position: fixed;
-                    top: 20%;
-                    right: 280px;
-                    width: 450px;
-                    height: 500px;
-                    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.07);
-                    -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.07);
-                    background-color: #fff;
-                    padding: 10px;
-                    border-radius: 2px;
-                    z-index: 2;
-                    opacity: 0;
-                    visibility: hidden;
-                    margin-top: 20px
+                position: fixed;
+                top: 20%;
+                right: 280px;
+                width: 450px;
+                height: 500px;
+                box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.07);
+                -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.07);
+                background-color: #fff;
+                padding: 10px;
+                border-radius: 2px;
+                z-index: 2;
+                opacity: 0;
+                visibility: hidden;
+                margin-top: 20px
                 }
                 #la-demo-selector .demo-selector a:hover {
-                    box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.07);
-                    -webkit-box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.07)
+                box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.07);
+                -webkit-box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.07)
                 }
                 #la-demo-selector .demo-selector a:hover .holder {
-                    opacity: 1;
-                    visibility: visible;
-                    margin: 0;
-                    transition: all .3s ease-in;
-                    -webkit-transition: all .3s ease-in
+                opacity: 1;
+                visibility: visible;
+                margin: 0;
+                transition: all .3s ease-in;
+                -webkit-transition: all .3s ease-in
                 }
             </div>
             <script type="text/javascript">
@@ -471,6 +473,43 @@ class Javier_Data_Demo_Plugin_Class{
         $content = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $content);
         $content = str_replace(array("\r\n", "\r", "\n", "\t", '	', '	', '	'), '', $content);
         return $content;
+    }
+
+    public function footerWidgetFallback( $layout ){
+        $home_url = home_url('/');
+        $logo = home_url('/wp-content/themes/javier/assets/images/logo-white.png');
+
+        $widget_args = array(
+            'before_widget' => '<div class="footer-column widget %s"><div class="widget-inner">',
+            'after_widget'  => '</div></div>',
+            'before_title'  => '<h4 class="widget-title"><span>',
+            'after_title'   => '</span></h4>',
+        );
+
+        the_widget( 'WP_Widget_Text', array(
+            'text' => '<a href="'.$home_url.'"><img src="'.$logo.'" alt="Javier - Modern WooCommerce Theme"/></a>
+<div class="font-size-12 text-uppercase padding-top-25 padding-bottom-15 letter-spacing-2">Modern WooCommerce Theme </div>
+<div class="font-size-14 padding-bottom-40">We believe that online shopping should be made easy and ecommerce wordpress theme must be powerful and also eye-catching to keep customers happy.</div>'
+        ), $widget_args );
+        the_widget( 'WP_Widget_Meta', array(
+            'title' => 'META'
+        ), array(
+            'before_widget' => '<div class="footer-column widget %s menu"><div class="widget-inner">',
+            'after_widget'  => '</div></div>',
+            'before_title'  => '<h4 class="widget-title"><span>',
+            'after_title'   => '</span></h4>',
+        ) );
+        the_widget( 'WP_Widget_Text', array(
+            'title' => 'CONTACT INFO',
+            'text'  => '<div class="footer-contacts">
+	<div class="la-contacts-item la-contacts-address">845 Marvin Passage Suite 003, South Vitohaven</div>
+	<div class="la-contacts-item la-contacts-email">
+		<a href="mailto:info@yoursite.com">info@yoursite.com</a>
+	</div>
+	<div class="la-contacts-item la-contacts-phone">(258) 987 654 321 - (258) 912 345 678</div>
+	<div class="la-contacts-item la-contacts-time">8:00 am - 6:00 pm</div>
+</div>'
+        ), $widget_args );
     }
 
     public function vc_load_default_templates( $templates ){
