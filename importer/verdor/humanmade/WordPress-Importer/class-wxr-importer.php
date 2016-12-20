@@ -1007,7 +1007,7 @@ class WXR_Importer extends WP_Importer {
 	 * @param string $url URL to fetch attachment from
 	 * @return int|WP_Error Post ID on success, WP_Error otherwise
 	 */
-	protected function process_attachment( $post, $meta, $remote_url ) {
+	protected function process_attachment2( $post, $meta, $remote_url ) {
 		// try to use _wp_attached file for upload folder placement to ensure the same location as the export site
 		// e.g. location is 2003/05/image.jpg but the attachment post_date is 2010/09, see media_handle_upload()
 
@@ -1080,6 +1080,77 @@ class WXR_Importer extends WP_Importer {
 			// remap resized image URLs, works by stripping the extension and remapping the URL stub.
 			/*if ( preg_match( '!^image/!', $info['type'] ) ) {
 				$parts = pathinfo( $url );
+				$name = basename( $parts['basename'], ".{$parts['extension']}" ); // PATHINFO_FILENAME in PHP 5.2
+
+				$parts_new = pathinfo( $upload['url'] );
+				$name_new = basename( $parts_new['basename'], ".{$parts_new['extension']}" );
+
+				$this->url_remap[$parts['dirname'] . '/' . $name] = $parts_new['dirname'] . '/' . $name_new;
+			}*/
+		}
+
+		return $post_id;
+	}
+	protected function process_attachment( $post, $meta, $remote_url ) {
+		// try to use _wp_attached file for upload folder placement to ensure the same location as the export site
+		// e.g. location is 2003/05/image.jpg but the attachment post_date is 2010/09, see media_handle_upload()
+		$post['upload_date'] = $post['post_date'];
+		foreach ( $meta as $meta_item ) {
+			if ( $meta_item['key'] !== '_wp_attached_file' ) {
+				continue;
+			}
+
+			if ( preg_match( '%^[0-9]{4}/[0-9]{2}%', $meta_item['value'], $matches ) ) {
+				$post['upload_date'] = $matches[0];
+			}
+			break;
+		}
+
+		// if the URL is absolute, but does not contain address, then upload it assuming base_site_url
+		if ( preg_match( '|^/[\w\W]+$|', $remote_url ) ) {
+			$remote_url = rtrim( $this->base_url, '/' ) . $remote_url;
+		}
+
+		$upload = $this->fetch_remote_file( $remote_url, $post );
+		if ( is_wp_error( $upload ) ) {
+			return $upload;
+		}
+
+		$info = wp_check_filetype( $upload['file'] );
+		if ( ! $info ) {
+			return new WP_Error( 'attachment_processing_error', __( 'Invalid file type', 'wordpress-importer' ) );
+		}
+
+		$post['post_mime_type'] = $info['type'];
+
+		// WP really likes using the GUID for display. Allow updating it.
+		// See https://core.trac.wordpress.org/ticket/33386
+		if ( $this->options['update_attachment_guids'] ) {
+			$post['guid'] = $upload['url'];
+		}
+
+		// as per wp-admin/includes/upload.php
+		$post_id = wp_insert_attachment( $post, $upload['file'] );
+		if ( is_wp_error( $post_id ) ) {
+			return $post_id;
+		}
+
+		$attachment_metadata = wp_generate_attachment_metadata( $post_id, $upload['file'] );
+		wp_update_attachment_metadata( $post_id, $attachment_metadata );
+
+		// Map this image URL later if we need to
+		$this->url_remap[ $remote_url ] = $upload['url'];
+
+		// If we have a HTTPS URL, ensure the HTTP URL gets replaced too
+		if ( substr( $remote_url, 0, 8 ) === 'https://' ) {
+			$insecure_url = 'http' . substr( $remote_url, 5 );
+			$this->url_remap[ $insecure_url ] = $upload['url'];
+		}
+
+		if ( $this->options['aggressive_url_search'] ) {
+			// remap resized image URLs, works by stripping the extension and remapping the URL stub.
+			/*if ( preg_match( '!^image/!', $info['type'] ) ) {
+				$parts = pathinfo( $remote_url );
 				$name = basename( $parts['basename'], ".{$parts['extension']}" ); // PATHINFO_FILENAME in PHP 5.2
 
 				$parts_new = pathinfo( $upload['url'] );
